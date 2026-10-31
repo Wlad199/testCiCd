@@ -14,7 +14,7 @@
 const message = ref('')
 
 const a = 50;
-const b
+const b = 150;
 
 console.log(a)
 
