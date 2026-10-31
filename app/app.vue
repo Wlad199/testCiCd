@@ -1,4 +1,5 @@
 <template>
+	<h1>This is test CI/CD</h1>
 	<div class="container">
 		<div class="text">{{ message }}</div>
 		<p>
