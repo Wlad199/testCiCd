@@ -1,6 +1,6 @@
 <template>
 	<h1>This is test CI/CD</h1>
-	<p>mistake = let a</p>
+	<p>{{ a }}</p>
 	<div class="container">
 		<div class="text">{{ message }}</div>
 		<p>
