@@ -1,6 +1,7 @@
 <template>
 	<h1>This is test CI/CD</h1>
 	<p>{{ a }}</p>
+	<p>{{ b }}</p>
 	<div class="container">
 		<div class="text">{{ message }}</div>
 		<p>
@@ -12,7 +13,13 @@
 <script setup lang='ts'>
 const message = ref('')
 
-const a = 50
+const a = 50;
+const b = 150
+
+console.log(a)
+
+
+
 </script>
 
 <style scoped lang='scss'>
