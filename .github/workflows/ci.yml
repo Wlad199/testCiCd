@@ -1,4 +1,4 @@
-name: CI/CD for Nuxt
+name: CI/CD Pipeline
 
 on:
   push:
@@ -25,16 +25,25 @@ jobs:
       - name: Type check
         run: npm run typecheck
 
-      - name: Lint (если настроен)
-        run: npm run lint
+      # Раскомментируйте, когда настроите ESLint
+      # - name: Lint
+      #   run: npm run lint
 
-      - name: Run tests (если настроены)
-        run: npm run test
+      # Раскомментируйте, когда настроите Vitest
+      # - name: Run tests
+      #   run: npm run test
 
-      - name: Build for Vercel
-        run: npx nuxt build --preset vercel
+      - name: Pull Vercel Environment Information
+        run: npx vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
         env:
-          NITRO_PRESET: vercel
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+
+      - name: Build Project Artifacts
+        run: npx vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
 
       - name: Deploy to Vercel (только для main)
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
