@@ -1,7 +1,7 @@
 <template>
 	<h1>This is test CI/CD</h1>
 	<p>{{ a }}</p>
-	<p>{{ b }}</p>
+	<p>This is bug {{ b }}</p>
 	<div class="container">
 		<div class="text">{{ message }}</div>
 		<p>
@@ -14,7 +14,7 @@
 const message = ref('')
 
 const a = 50;
-const b = 150;
+const b = 1500;
 
 console.log(a)
 
