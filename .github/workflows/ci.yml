@@ -25,9 +25,11 @@ jobs:
       - name: Type check
         run: npm run typecheck
 
-      # Раскомментируйте, когда настроите ESLint
-      # - name: Lint
-      #   run: npm run lint
+      - name: Prepare Nuxt
+        run: npx nuxi prepare
+
+      - name: Lint
+        run: npm run lint
 
       # Раскомментируйте, когда настроите Vitest
       # - name: Run tests

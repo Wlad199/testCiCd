@@ -1,15 +1,18 @@
 <template>
 	<h1>This is test CI/CD</h1>
+	<p>mistake = let a</p>
 	<div class="container">
 		<div class="text">{{ message }}</div>
 		<p>
-			<input type="text" v-model="message" placeholder="Enter text">
+			<input v-model="message" type="text" placeholder="Enter text">
 		</p>
 	</div>
 </template>
 
 <script setup lang='ts'>
 const message = ref('')
+
+const a = 50
 </script>
 
 <style scoped lang='scss'>
